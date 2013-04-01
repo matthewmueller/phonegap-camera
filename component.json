@@ -9,8 +9,7 @@
   ],
   "dependencies": {
     "visionmedia/debug": "*",
-    "component/emitter": "*",
-    "component/data-uri-to-blob": "*"
+    "component/emitter": "*"
   },
   "development": {
     "visionmedia/mocha" : "*",

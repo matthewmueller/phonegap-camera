@@ -3,8 +3,7 @@
  */
 
 var debug = require('debug')('phonegap:camera'),
-    Emitter = require('emitter'),
-    toBlob = require('data-uri-to-blob');
+    Emitter = require('emitter');
 
 /**
  * Export `Camera`
@@ -28,7 +27,7 @@ function Camera() {
 Emitter(Camera.prototype);
 
 /**
- * Capture a picture and return a file blob
+ * Capture a picture and return a base64 string
  *
  * @param {Function} fn
  * @return {Camera}
@@ -45,9 +44,8 @@ Camera.prototype.capture = function(fn) {
 
   function success(data) {
     debug('took picture');
-    var blob = toBlob(data);
-    self.emit('capture', blob);
-    return fn(null, blob);
+    self.emit('capture', data);
+    return fn(null, data);
   }
 
   function error(err) {
@@ -77,9 +75,8 @@ Camera.prototype.select = function(fn) {
 
   function success(data) {
     debug('selected picture');
-    var blob = toBlob(data);
-    self.emit('select', blob);
-    return fn(null, blob);
+    self.emit('select', data);
+    return fn(null, data);
   }
 
   function error(err) {

@@ -52,10 +52,9 @@ describe('Camera', function () {
         return success(datauri);
       };
 
-      camera.capture(function(err, blob) {
+      camera.capture(function(err, base64) {
         assert(!err);
-        assert(blob instanceof Blob);
-        assert('image/gif' == blob.type);
+        assert('string' == typeof base64);
       })
     });
 
@@ -83,11 +82,10 @@ describe('Camera', function () {
         return success(datauri);
       };
 
-      camera.select(function(err, blob) {
+      camera.select(function(err, base64) {
         assert(!err);
-        assert(blob instanceof Blob);
-        assert('image/gif' == blob.type);
-      });
+        assert('string' == typeof base64)
+      })
     });
 
     it('should handle errors', function () {
