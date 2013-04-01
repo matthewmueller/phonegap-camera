@@ -29,10 +29,16 @@ describe('Camera', function () {
   });
 
 
-  describe('.supported', function () {
+  describe('.supported()', function () {
 
     it('should return false, when phonegap not present', function () {
-      assert(false == Camera.supported);
+      navigator.camera = undefined;
+      assert(false == Camera.supported());
+    });
+
+    it('should return true, when navigator.camera is present', function () {
+      navigator.camera = {}
+      assert(true == Camera.supported());
     });
 
   });

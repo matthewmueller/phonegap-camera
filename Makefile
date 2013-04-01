@@ -9,8 +9,7 @@ clean:
 	rm -fr build components template.js
 
 test: build
-	serve -p 9200 &
-	open http://localhost:9200/test
+	serve -p 9200
 
 
 .PHONY: clean test

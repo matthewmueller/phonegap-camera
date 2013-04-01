@@ -98,7 +98,7 @@ Camera.prototype.select = function(fn) {
  * @api public
  */
 
-Camera.supported = (function() {
+Camera.supported = function() {
   if(navigator && navigator.camera) return true;
   return false;
-})();
+};
