@@ -2,7 +2,7 @@
   "name": "phonegap-camera",
   "repo": "matthewmueller/phonegap-camera",
   "description": "wrapper for phonegap camera api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "phonegap",
     "camera"
