@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>phonegap-camera component</title>
+</head>
+<body>
+  <h1>phonegap-camera component</h1>
+  <script src="../build/build.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var Camera = require('phonegap-camera');
+
+    if(Camera.supported) {
+      var camera = new Camera;
+      console.log('zzz', camera);
+    }
+
+
+    // console.log(camera);
+    // console.log(navigator.camera);
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "phonegap-camera",
+  "repo": "matthewmueller/phonegap-camera",
+  "description": "wrapper for phonegap camera api",
+  "version": "0.0.1",
+  "keywords": [
+    "phonegap",
+    "camera"
+  ],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "component/emitter": "*",
+    "component/data-uri-to-blob": "*"
+  },
+  "development": {
+    "visionmedia/mocha" : "*",
+    "component/assert": "*",
+    "visionmedia/mocha-matrix": "*"
+  },
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
