@@ -61,6 +61,8 @@ Camera.prototype.capture = function(fn) {
 /**
  * Select a photo from the photo library
  *
+ * TODO: blob support
+ *
  * @param {Function} fn
  * @return {Camera}
  * @api public

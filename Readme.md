@@ -29,10 +29,6 @@ Inititialize a new `Camera`.
 
 Capture a new photo on your phone's camera. The callback `fn` has the signature `function(err, blob)` where `blob` is a [File Blob](https://developer.mozilla.org/en-US/docs/DOM/Blob)
 
-### `.select(fn)`
-
-Select a photo from your phone's photo library. The callback `fn` has the signature `function(err, blob)` where `blob` is a [File Blob](https://developer.mozilla.org/en-US/docs/DOM/Blob).
-
 ### `Camera.supported()`
 
 Check to see if the camera is supported.
