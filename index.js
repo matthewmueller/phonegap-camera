@@ -44,14 +44,15 @@ Camera.prototype.capture = function(fn) {
 
   function success(data) {
     debug('took picture');
-    self.emit('capture', data);
-    return fn(null, data);
+    var blob = base64toBlob(data, 'image/jpeg');
+    self.emit('capture', blob);
+    fn && fn(null, blob);
   }
 
   function error(err) {
     debug('error taking picture %s', err);
     self.emit('error', err);
-    return fn(err);
+    fn && fn(err);
   }
 
   return this;
@@ -76,13 +77,13 @@ Camera.prototype.select = function(fn) {
   function success(data) {
     debug('selected picture');
     self.emit('select', data);
-    return fn(null, data);
+    fn && fn(null, data);
   }
 
   function error(err) {
     debug('error selecting picture %s', err);
     self.emit('error', err);
-    return fn(err);
+    fn && fn(err);
   }
 
   return this;
@@ -99,3 +100,24 @@ Camera.supported = function() {
   if(navigator && navigator.camera) return true;
   return false;
 };
+
+/**
+ * Base64 to Blob
+ *
+ * @param {String} base64
+ * @param {String} mime
+ * @return {Blob} blob
+ * @api private
+ */
+
+function base64toBlob(base64, mime) {
+  var bytes = atob(base64),
+      ab = new ArrayBuffer(bytes.length),
+      ia = new Uint8Array(ab);
+
+  for (var i = 0; i < bytes.length; i++) {
+      ia[i] = bytes.charCodeAt(i);
+  }
+
+  return new Blob([ab], { type: mime });
+}

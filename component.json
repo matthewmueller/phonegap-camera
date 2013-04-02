@@ -9,7 +9,8 @@
   ],
   "dependencies": {
     "visionmedia/debug": "*",
-    "component/emitter": "*"
+    "component/emitter": "*",
+    "adamsanderson/trigger-event" : "*"
   },
   "development": {
     "visionmedia/mocha" : "*",
