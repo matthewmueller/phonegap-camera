@@ -13,9 +13,9 @@
 camera = new Camera;
 
 // capture a photo
-camera.capture(function(err, blob) {
+camera.capture(function(err, str) {
   if(err) throw err;
-  console.log(blob);
+  console.log(str);
 });
 ```
 
@@ -27,7 +27,11 @@ Inititialize a new `Camera`.
 
 ### `.capture(fn)`
 
-Capture a new photo on your phone's camera. The callback `fn` has the signature `function(err, blob)` where `blob` is a [File Blob](https://developer.mozilla.org/en-US/docs/DOM/Blob)
+Capture a new photo on your phone's camera. The callback `fn` has the signature `function(err, str)` where `str` is a Base64 string.
+
+### `.select(fn)`
+
+Select a new photo from your photo library. The callback `fn` has the signature `function(err, str)` where `str` is a Base64 string.
 
 ### `Camera.supported()`
 

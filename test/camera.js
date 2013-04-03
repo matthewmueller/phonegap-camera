@@ -52,10 +52,9 @@ describe('Camera', function () {
         return success(datauri);
       };
 
-      camera.capture(function(err, blob) {
+      camera.capture(function(err, base64) {
         assert(!err);
-        assert(blob instanceof Blob);
-        assert('image/jpeg' == blob.type)
+        assert('string' == typeof base64);
       })
     });
 
