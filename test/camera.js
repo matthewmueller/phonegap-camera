@@ -43,7 +43,7 @@ describe('Camera', function () {
 
   });
 
-  describe('capture', function () {
+  describe('#capture([type], fn)', function () {
 
     it('should turn a datauri into a blob', function () {
       navigator.camera.getPicture = function(success, error, options) {
@@ -71,9 +71,23 @@ describe('Camera', function () {
       })
     });
 
+    describe('given type', function(){
+      it('should use the type', function(done){
+        // NATIVE_URI = 2
+        navigator.camera.getPicture = function(success, _, opts){
+          assert(2 == opts.destinationType);
+          return success();
+        };
+
+        camera.capture(2, function(){
+          done();
+        });
+      });
+    });
+
   });
 
-  describe('select', function () {
+  describe('#select([type], fn)', function () {
 
     it('should turn selected image into blob', function() {
       navigator.camera.getPicture = function(success, error, options) {
@@ -99,6 +113,20 @@ describe('Camera', function () {
         assert(err);
         assert(!blob);
       })
+    });
+
+    describe('given type', function(){
+      it('should use the type', function(done){
+        // NATIVE_URI = 2
+        navigator.camera.getPicture = function(success, _, opts){
+          assert(2 == opts.destinationType);
+          return success();
+        };
+
+        camera.select(2, function(){
+          done();
+        });
+      });
     });
   });
 

@@ -29,16 +29,21 @@ Emitter(Camera.prototype);
 /**
  * Capture a picture and return a base64 string
  *
+ * @param {Number} [type]
  * @param {Function} fn
  * @return {Camera}
  * @api public
  */
 
-Camera.prototype.capture = function(fn) {
+Camera.prototype.capture = function(type, fn) {
   var self = this;
+  if ('function' == typeof type) {
+    fn = type;
+    type = 0; // DestinationType.DATA_URL
+  }
 
   this.camera.getPicture(success, error, {
-    destinationType: 0, // DestinationType.DATA_URL
+    destinationType: type,
     sourceType: 1 // PictureSourceType.CAMERA
   });
 
@@ -62,16 +67,22 @@ Camera.prototype.capture = function(fn) {
  *
  * TODO: blob support
  *
+ * @param {Number} [type]
  * @param {Function} fn
  * @return {Camera}
  * @api public
  */
 
-Camera.prototype.select = function(fn) {
+Camera.prototype.select = function(type, fn) {
   var self = this;
 
+  if ('function' == typeof type) {
+    fn = type;
+    type = 0; // DestinationType.DATA_URL
+  }
+
   this.camera.getPicture(success, error, {
-    destinationType: 0, // DestinationType.DATA_URL
+    destinationType: type, 
     sourceType: 0 // PictureSourceType.PHOTOLIBRARY
   });
 
