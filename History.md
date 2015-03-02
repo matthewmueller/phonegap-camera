@@ -1,4 +1,9 @@
 
+0.1.0 / 2015-03-02
+==================
+
+  * index: Make DestinationType configurable (#1, @stephenmathieson)
+
 0.0.5 / 2013-04-02
 ==================
 
